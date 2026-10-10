@@ -5,6 +5,7 @@ Example:
 """
 
 import argparse
+import inspect
 import sys
 
 import gradio as gr
@@ -39,9 +40,11 @@ def main():
     def chat(message, history):
         return generate(model, tok, to_messages(message, history), max_new_tokens=384)
 
+    # Gradio 4/5 need type="messages"; Gradio 6 removed the argument and always uses messages.
+    extra = {"type": "messages"} if "type" in inspect.signature(gr.ChatInterface).parameters else {}
     gr.ChatInterface(
         chat,
-        type="messages",
+        **extra,
         title="Bilge · Turkish AI Assistant",
         description=f"Base model: {a.model} · fine-tuned with QLoRA on Turkish instruction data. Ask in Turkish.",
         examples=["Yapay zekâ ile makine öğrenmesi arasındaki farkı basitçe açıkla.",

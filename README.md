@@ -7,7 +7,8 @@
 python app.py --adapter runs/bilge-1.5b-lora/adapter --share
 ```
 
-<p align="center"><img src="docs/assets/pipeline.svg" width="100%" alt="Pipeline"></p>
+<p align="center"><img src="docs/assets/chat_interface.png" width="100%" alt="Example"></p>
+<p align="center"><sub>Bilge's chat interface (Gradio).</sub></p>
 
 > **Status:** Work in progress. Result tables will be added as experiments are completed.
 
@@ -16,6 +17,8 @@ python app.py --adapter runs/bilge-1.5b-lora/adapter --share
 Multilingual open models often answer Turkish instructions with short, incomplete or grammatically weak responses, while full fine-tuning requires a lot of GPU memory. This project aims to improve Turkish instruction-following on a single free Colab GPU (T4, 16 GB) by training only a small fraction of the model's parameters.
 
 ## Approach
+
+<p align="center"><img src="docs/assets/pipeline.svg" width="100%" alt="Pipeline"></p>
 
 | Step | Method | File |
 |---|---|---|
