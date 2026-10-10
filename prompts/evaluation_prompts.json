@@ -1,0 +1,10 @@
+[
+  {"category": "Explanation", "instruction": "Yapay sinir ağlarında aşırı öğrenme (overfitting) nedir? Önlemek için üç yöntem öner."},
+  {"category": "Technical knowledge", "instruction": "İnsansız hava araçlarında kullanılan termal kameraların görünür ışık kameralarına göre avantaj ve dezavantajlarını açıkla."},
+  {"category": "Summarization", "instruction": "Aşağıdaki metni iki cümleyle özetle.", "input": "Nesne tespit modelleri, eğitildikleri verinin kalitesine büyük ölçüde bağımlıdır. Eksik veya hatalı etiketler, modelin bazı nesneleri öğrenememesine ya da yanlış sınıflara atamasına neden olur. Bu nedenle büyük veri setlerinde etiket kalitesinin otomatik olarak denetlenmesi, hem maliyeti azaltır hem de modelin sahadaki güvenilirliğini artırır."},
+  {"category": "Writing", "instruction": "Bir staj başvurusu için kısa ve resmi bir teşekkür e-postası yaz."},
+  {"category": "Reasoning", "instruction": "Bir tren saatte 80 km hızla 2,5 saat gidiyor, sonra saatte 60 km hızla 1,5 saat daha gidiyor. Toplam kaç km yol almıştır? Adım adım çöz."},
+  {"category": "Classification", "instruction": "Aşağıdaki cümlenin duygu durumunu olumlu, olumsuz veya nötr olarak sınıflandır ve nedenini açıkla.", "input": "Kargo üç gün gecikti ama ürün beklediğimden çok daha kaliteli çıktı."},
+  {"category": "Code", "instruction": "Python'da bir listedeki tekrar eden elemanları sırayı koruyarak kaldıran bir fonksiyon yaz ve kısaca açıkla."},
+  {"category": "Grammar", "instruction": "Şu cümledeki yazım hatalarını düzelt: 'Yarın ki toplantıya herkezin katılması gerekiyor, bende orda olucam.'"}
+]

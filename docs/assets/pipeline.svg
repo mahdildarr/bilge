@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="296" viewBox="0 0 960 296" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c8962e"/></marker></defs>
+<rect width="960" height="296" rx="14" fill="#ffffff"/>
+<text x="32" y="38" font-size="18" font-weight="700" fill="#1d2733">Bilge: a Turkish AI assistant</text>
+<text x="32" y="60" font-size="12.5" fill="#5b6775">Fine-tuning an open LLM on Turkish instructions with QLoRA on a single free GPU</text>
+<g transform="translate(32.0,86)">
+<rect width="198.5" height="186" rx="10" fill="#eef3f8" stroke="#c9d3dd"/>
+<text x="14" y="26" font-size="11" font-weight="700" fill="#2c5578" letter-spacing=".6">1 · DATA</text>
+<text x="14" y="54" font-size="12.5" font-weight="700" fill="#1d2733">Turkish-Alpaca</text>
+<text x="14" y="70" font-size="11" fill="#5b6775">~52k instruction examples</text>
+<text x="14" y="96" font-size="12.5" font-weight="700" fill="#1d2733">Default subset</text>
+<text x="14" y="112" font-size="11" fill="#5b6775">5,000 train / 500 validation</text>
+</g>
+<line x1="234.5" y1="179" x2="260.5" y2="179" stroke="#c8962e" stroke-width="2.2" marker-end="url(#a)"/>
+<g transform="translate(264.5,86)">
+<rect width="198.5" height="186" rx="10" fill="#eef3f8" stroke="#c9d3dd"/>
+<text x="14" y="26" font-size="11" font-weight="700" fill="#2c5578" letter-spacing=".6">2 · PREPARATION</text>
+<text x="14" y="54" font-size="12.5" font-weight="700" fill="#1d2733">Chat template</text>
+<text x="14" y="70" font-size="11" fill="#5b6775">instruction, input, output</text>
+<text x="14" y="96" font-size="12.5" font-weight="700" fill="#1d2733">Prompt masking</text>
+<text x="14" y="112" font-size="11" fill="#5b6775">loss on the answer</text>
+<text x="14" y="127" font-size="11" fill="#5b6775">tokens only</text>
+</g>
+<line x1="467.0" y1="179" x2="493.0" y2="179" stroke="#c8962e" stroke-width="2.2" marker-end="url(#a)"/>
+<g transform="translate(497.0,86)">
+<rect width="198.5" height="186" rx="10" fill="#2c5578"/>
+<text x="14" y="26" font-size="11" font-weight="700" fill="#f0d79e" letter-spacing=".6">3 · MODEL</text>
+<text x="14" y="54" font-size="12.5" font-weight="700" fill="#ffffff">Qwen2.5-1.5B-Instruct</text>
+<text x="14" y="70" font-size="11" fill="#d7e3ee">quantised to 4-bit</text>
+<text x="14" y="96" font-size="12.5" font-weight="700" fill="#ffffff">LoRA adapters</text>
+<text x="14" y="112" font-size="11" fill="#d7e3ee">attention and MLP, rank 16</text>
+<text x="14" y="138" font-size="12.5" font-weight="700" fill="#ffffff">Single T4 GPU</text>
+<text x="14" y="154" font-size="11" fill="#d7e3ee">Google Colab</text>
+</g>
+<line x1="699.5" y1="179" x2="725.5" y2="179" stroke="#c8962e" stroke-width="2.2" marker-end="url(#a)"/>
+<g transform="translate(729.5,86)">
+<rect width="198.5" height="186" rx="10" fill="#eef3f8" stroke="#c9d3dd"/>
+<text x="14" y="26" font-size="11" font-weight="700" fill="#2c5578" letter-spacing=".6">4 · EVALUATION</text>
+<text x="14" y="54" font-size="12.5" font-weight="700" fill="#1d2733">Perplexity</text>
+<text x="14" y="70" font-size="11" fill="#5b6775">before vs after</text>
+<text x="14" y="96" font-size="12.5" font-weight="700" fill="#1d2733">Side-by-side answers</text>
+<text x="14" y="112" font-size="11" fill="#5b6775">8 prompt categories</text>
+<text x="14" y="138" font-size="12.5" font-weight="700" fill="#1d2733">Chat demo</text>
+<text x="14" y="154" font-size="11" fill="#5b6775">Gradio interface</text>
+</g>
+</svg>
