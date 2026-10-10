@@ -63,10 +63,18 @@ python app.py --adapter runs/bilge-1.5b-lora/adapter --share
 - **Qualitative comparison:** Answers to the same prompts in explanation, technical knowledge, summarization, writing, reasoning, classification, code and grammar categories (`prompts/evaluation_prompts.json`)
 - **Efficiency:** Share of trainable parameters and training time
 
-## Roadmap
+## Progress
 
-- [x] Training, evaluation and demo pipeline
-- [ ] Baseline experiment with 5,000 examples
+- [x] Turkish instruction data preparation with prompt masking
+- [x] QLoRA training on a single T4 GPU
+- [x] Perplexity before / after fine-tuning
+- [x] Side-by-side comparison with the base model
+- [x] Gradio chat interface
+- [x] Colab notebook
+
+Next:
+
+- [ ] Baseline run with 5,000 examples
 - [ ] Effect of training set size and LoRA rank
 - [ ] Publish the adapter on the Hugging Face Hub
 
