@@ -7,24 +7,14 @@ Example:
 import argparse
 import inspect
 import sys
+from pathlib import Path
 
 import gradio as gr
 from peft import PeftModel
 
-sys.path.insert(0, "src")
-from common import SYSTEM_PROMPT, generate, load_base_model, load_tokenizer  # noqa: E402
-
-
-def to_messages(message, history):
-    msgs = [{"role": "system", "content": SYSTEM_PROMPT}]
-    for turn in history:
-        if isinstance(turn, dict):  # Gradio "messages" format
-            msgs.append({"role": turn["role"], "content": turn["content"]})
-        else:  # legacy (user, assistant) pair format
-            user, bot = turn
-            msgs += [{"role": "user", "content": user}, {"role": "assistant", "content": bot}]
-    msgs.append({"role": "user", "content": message})
-    return msgs
+sys.path.insert(0, str(Path(__file__).parent / "src"))
+from bilge.modeling import generate, load_base_model, load_tokenizer  # noqa: E402
+from bilge.prompts import to_messages  # noqa: E402
 
 
 def main():

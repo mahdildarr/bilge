@@ -1,0 +1,5 @@
+# Training-set size x LoRA rank grid for `python -m bilge.sweep --config configs/sweep.yaml`.
+base: configs/qwen2.5-1.5b.yaml
+grid:
+  train_samples: [1000, 5000, 20000]
+  rank: [8, 16, 64]

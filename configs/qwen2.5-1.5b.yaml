@@ -1,0 +1,18 @@
+# QLoRA on a free Colab T4 (16 GB). Any key of bilge.train.DEFAULTS can be set here or with --set.
+model: Qwen/Qwen2.5-1.5B-Instruct
+dataset: TFLai/Turkish-Alpaca
+eval_prompts: prompts/evaluation_prompts.json   # removed from the training data by n-gram decontamination
+train_samples: 5000
+eval_samples: 500
+max_len: 512
+epochs: 1
+lr: 2.0e-4
+batch: 4
+grad_accum: 4        # effective batch size 16
+rank: 16
+alpha: 32
+dropout: 0.05
+eval_steps: 50
+patience: 3          # early stopping on validation loss
+out: runs/bilge-1.5b-lora
+seed: 42

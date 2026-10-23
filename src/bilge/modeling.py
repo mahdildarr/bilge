@@ -1,18 +1,8 @@
-"""Shared model loading and prompt formatting for training, evaluation and the demo."""
+"""Model loading and generation shared by training, evaluation and the demo."""
+from __future__ import annotations
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
-
-# Bilge is a Turkish assistant, so its system prompt is in Turkish:
-# "You are Bilge, a helpful, accurate and clear-spoken Turkish AI assistant."
-SYSTEM_PROMPT = "Sen Bilge adında, yardımsever, doğru ve açık konuşan bir Türkçe yapay zekâ asistanısın."
-
-
-def build_messages(instruction, inp=""):
-    user = instruction.strip()
-    if inp and inp.strip():
-        user += "\n\n" + inp.strip()
-    return [{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": user}]
 
 
 def load_tokenizer(name):
@@ -22,17 +12,22 @@ def load_tokenizer(name):
     return tok
 
 
+def compute_dtype():
+    """bf16 where the GPU supports it (Ampere and newer), fp16 otherwise (e.g. the T4)."""
+    return torch.bfloat16 if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else torch.float16
+
+
 def load_base_model(name, four_bit=True):
-    """Load the base model in 4-bit (QLoRA) or 16-bit. fp16 is used because the T4 GPU does not support bf16."""
+    """Load the base model in 4-bit NF4 (QLoRA) or in 16 bit."""
     if four_bit:
         bnb = BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_quant_type="nf4",
-            bnb_4bit_compute_dtype=torch.float16,
+            bnb_4bit_compute_dtype=compute_dtype(),
             bnb_4bit_use_double_quant=True,
         )
         return AutoModelForCausalLM.from_pretrained(name, quantization_config=bnb, device_map="auto")
-    return AutoModelForCausalLM.from_pretrained(name, torch_dtype=torch.float16, device_map="auto")
+    return AutoModelForCausalLM.from_pretrained(name, torch_dtype=compute_dtype(), device_map="auto")
 
 
 @torch.no_grad()
